@@ -9,7 +9,7 @@ makeCacheMatrix <- function(x = matrix()) {
     x<<-y
     inv<<-NULL
   }
-  get<-function()x
+  get<-function()x    ##Function to get matrix x
   setinv<-function(inverse)inv<<-inverse
   getinv<-function(){
     inver<-ginv(x)
@@ -23,7 +23,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## Write a short comment describing this function
 
-cacheSolve <- function(x, ...)
+cacheSolve <- function(x, ...) ## Return a matrix that is the inverse of 'x'
   {
   inv<-x$get()
   if(!is.null(inv)){
@@ -33,5 +33,5 @@ cacheSolve <- function(x, ...)
   data<-x$get()
   inv<-solve(data,...)
   x$setinv(inv)
-  inv        ## Return a matrix that is the inverse of 'x'
+  inv       
 }
